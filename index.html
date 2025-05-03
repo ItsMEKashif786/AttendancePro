@@ -1020,7 +1020,7 @@
                 
                 const name = document.getElementById('student-name').value.trim();
                 const phone = document.getElementById('student-phone').value.trim();
-                const level = document.getElementById('student-level').value.trim();
+                const Graduation = document.getElementById('student-Graduation').value.trim();
                 const address = document.getElementById('student-address').value.trim();
                 
                 if (!name || !phone || !level) {
@@ -1033,7 +1033,7 @@
                     id: Date.now().toString(),
                     name,
                     phone,
-                    level,
+                    Graduation,
                     address,
                     attendance: {}
                 };
@@ -1135,7 +1135,7 @@
                 const monthYearKey = `${currentMonth}-${currentYear}`;
 
                 // CSV header
-                let csv = 'Serial,Name,Phone,Level,Address';
+                let csv = 'Serial,Name,Phone,Graduation,Address';
                 
                 // Add day headers with month name (e.g., "Jan 1", "Jan 2")
                 for (let day = 1; day <= daysInMonth; day++) {
