@@ -124,24 +124,40 @@
         }
 
         .btn-sm {
+    position: relative;
     background-color: #4CAF50;
     color: white;
-    font-size: 16px;
+    font-size: 18px;
     padding: 8px 16px;
     border: none;
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.15);
     cursor: pointer;
     transition: all 0.3s ease;
-    height: 38px; /* match with dropdown height */
+    height: 38px;
+    width: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 
-.btn-sm:hover {
-    background-color: #388E3C;
-    transform: scale(1.05);
+.btn-sm::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2); /* semi-transparent black */
+    animation: slideCover 2s linear infinite;
+    z-index: 0;
+}
+
+.btn-sm span {
+    position: relative;
+    z-index: 1;
+    font-weight: bold;
 }
             
             
@@ -494,6 +510,12 @@
         }
 
         /* Animation for modal */
+       @keyframes slideCover {
+    0% { left: -100%; }
+    50% { left: 0; }
+    100% { left: 100%; }
+       }
+        
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
